@@ -3310,6 +3310,50 @@ export class Proton extends Entity {
   }
 }
 
+export class ProtonCount extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("totalProtons", Value.fromBigInt(BigInt.zero()));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id != null, "Cannot save ProtonCount entity without an ID");
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save ProtonCount entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("ProtonCount", id.toString(), this);
+    }
+  }
+
+  static load(id: string): ProtonCount | null {
+    return changetype<ProtonCount | null>(store.get("ProtonCount", id));
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get totalProtons(): BigInt {
+    let value = this.get("totalProtons");
+    return value!.toBigInt();
+  }
+
+  set totalProtons(value: BigInt) {
+    this.set("totalProtons", Value.fromBigInt(value));
+  }
+}
+
 export class ProtonNFT extends Entity {
   constructor(id: string) {
     super();

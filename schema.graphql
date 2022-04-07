@@ -393,6 +393,15 @@ type Proton @entity {
   tokens: [ProtonNFT!]! @derivedFrom(field: "proton")
 }
 
+
+# ID: `${proton.address}`
+# dynamically generated type, not mapped to a specific contract
+type ProtonCount @entity {
+  id: ID!
+
+  totalProtons: BigInt!
+}
+
 # ID: `${proton.address}-${nft.id}`
 # dynamically generated type, not mapped to a specific contract
 type ProtonNFT @entity {

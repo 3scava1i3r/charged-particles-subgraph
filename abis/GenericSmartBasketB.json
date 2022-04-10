@@ -110,11 +110,6 @@
         "internalType": "uint256",
         "name": "tokenId",
         "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "nftTokenAmount",
-        "type": "uint256"
       }
     ],
     "name": "addToBasket",
@@ -158,19 +153,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "getNestedNftCount",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "address",
@@ -198,7 +180,7 @@
     "inputs": [
       {
         "internalType": "contract ITokenInfoProxy",
-        "name": "",
+        "name": "tokenInfoProxy",
         "type": "address"
       }
     ],
@@ -334,11 +316,6 @@
       {
         "internalType": "uint256",
         "name": "tokenId",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "nftTokenAmount",
         "type": "uint256"
       }
     ],

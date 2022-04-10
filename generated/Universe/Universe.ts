@@ -600,10 +600,6 @@ export class OnCovalentBondCall__Inputs {
   get nftTokenId(): BigInt {
     return this._call.inputValues[4].value.toBigInt();
   }
-
-  get nftTokenAmount(): BigInt {
-    return this._call.inputValues[5].value.toBigInt();
-  }
 }
 
 export class OnCovalentBondCall__Outputs {
@@ -649,10 +645,6 @@ export class OnCovalentBreakCall__Inputs {
 
   get value4(): BigInt {
     return this._call.inputValues[4].value.toBigInt();
-  }
-
-  get value5(): BigInt {
-    return this._call.inputValues[5].value.toBigInt();
   }
 }
 

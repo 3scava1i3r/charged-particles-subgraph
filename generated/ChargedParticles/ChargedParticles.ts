@@ -342,20 +342,18 @@ export class ChargedParticles extends ethereum.SmartContract {
     tokenId: BigInt,
     basketManagerId: string,
     nftTokenAddress: Address,
-    nftTokenId: BigInt,
-    nftTokenAmount: BigInt
+    nftTokenId: BigInt
   ): boolean {
     let result = super.call(
       "breakCovalentBond",
-      "breakCovalentBond(address,address,uint256,string,address,uint256,uint256):(bool)",
+      "breakCovalentBond(address,address,uint256,string,address,uint256):(bool)",
       [
         ethereum.Value.fromAddress(receiver),
         ethereum.Value.fromAddress(contractAddress),
         ethereum.Value.fromUnsignedBigInt(tokenId),
         ethereum.Value.fromString(basketManagerId),
         ethereum.Value.fromAddress(nftTokenAddress),
-        ethereum.Value.fromUnsignedBigInt(nftTokenId),
-        ethereum.Value.fromUnsignedBigInt(nftTokenAmount)
+        ethereum.Value.fromUnsignedBigInt(nftTokenId)
       ]
     );
 
@@ -368,20 +366,18 @@ export class ChargedParticles extends ethereum.SmartContract {
     tokenId: BigInt,
     basketManagerId: string,
     nftTokenAddress: Address,
-    nftTokenId: BigInt,
-    nftTokenAmount: BigInt
+    nftTokenId: BigInt
   ): ethereum.CallResult<boolean> {
     let result = super.tryCall(
       "breakCovalentBond",
-      "breakCovalentBond(address,address,uint256,string,address,uint256,uint256):(bool)",
+      "breakCovalentBond(address,address,uint256,string,address,uint256):(bool)",
       [
         ethereum.Value.fromAddress(receiver),
         ethereum.Value.fromAddress(contractAddress),
         ethereum.Value.fromUnsignedBigInt(tokenId),
         ethereum.Value.fromString(basketManagerId),
         ethereum.Value.fromAddress(nftTokenAddress),
-        ethereum.Value.fromUnsignedBigInt(nftTokenId),
-        ethereum.Value.fromUnsignedBigInt(nftTokenAmount)
+        ethereum.Value.fromUnsignedBigInt(nftTokenId)
       ]
     );
     if (result.reverted) {
@@ -396,19 +392,17 @@ export class ChargedParticles extends ethereum.SmartContract {
     tokenId: BigInt,
     basketManagerId: string,
     nftTokenAddress: Address,
-    nftTokenId: BigInt,
-    nftTokenAmount: BigInt
+    nftTokenId: BigInt
   ): boolean {
     let result = super.call(
       "covalentBond",
-      "covalentBond(address,uint256,string,address,uint256,uint256):(bool)",
+      "covalentBond(address,uint256,string,address,uint256):(bool)",
       [
         ethereum.Value.fromAddress(contractAddress),
         ethereum.Value.fromUnsignedBigInt(tokenId),
         ethereum.Value.fromString(basketManagerId),
         ethereum.Value.fromAddress(nftTokenAddress),
-        ethereum.Value.fromUnsignedBigInt(nftTokenId),
-        ethereum.Value.fromUnsignedBigInt(nftTokenAmount)
+        ethereum.Value.fromUnsignedBigInt(nftTokenId)
       ]
     );
 
@@ -420,19 +414,17 @@ export class ChargedParticles extends ethereum.SmartContract {
     tokenId: BigInt,
     basketManagerId: string,
     nftTokenAddress: Address,
-    nftTokenId: BigInt,
-    nftTokenAmount: BigInt
+    nftTokenId: BigInt
   ): ethereum.CallResult<boolean> {
     let result = super.tryCall(
       "covalentBond",
-      "covalentBond(address,uint256,string,address,uint256,uint256):(bool)",
+      "covalentBond(address,uint256,string,address,uint256):(bool)",
       [
         ethereum.Value.fromAddress(contractAddress),
         ethereum.Value.fromUnsignedBigInt(tokenId),
         ethereum.Value.fromString(basketManagerId),
         ethereum.Value.fromAddress(nftTokenAddress),
-        ethereum.Value.fromUnsignedBigInt(nftTokenId),
-        ethereum.Value.fromUnsignedBigInt(nftTokenAmount)
+        ethereum.Value.fromUnsignedBigInt(nftTokenId)
       ]
     );
     if (result.reverted) {
@@ -1320,10 +1312,6 @@ export class BreakCovalentBondCall__Inputs {
   get nftTokenId(): BigInt {
     return this._call.inputValues[5].value.toBigInt();
   }
-
-  get nftTokenAmount(): BigInt {
-    return this._call.inputValues[6].value.toBigInt();
-  }
 }
 
 export class BreakCovalentBondCall__Outputs {
@@ -1373,10 +1361,6 @@ export class CovalentBondCall__Inputs {
 
   get nftTokenId(): BigInt {
     return this._call.inputValues[4].value.toBigInt();
-  }
-
-  get nftTokenAmount(): BigInt {
-    return this._call.inputValues[5].value.toBigInt();
   }
 }
 

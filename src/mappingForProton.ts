@@ -191,9 +191,9 @@ export function handleTransfer(event: Transfer): void {
       }
     }
 
-    // const _minterProfileMetric = loadOrCreateProfileMetric(event.params.to);
-    // _minterProfileMetric.mintProtonCount = _minterProfileMetric.mintProtonCount.plus(ONE);
-    // _minterProfileMetric.save()
+    const _minterProfileMetric = loadOrCreateProfileMetric(event.params.to);
+    _minterProfileMetric.mintProtonCount = _minterProfileMetric.mintProtonCount.plus(ONE);
+    _minterProfileMetric.save()
   }
 }
 

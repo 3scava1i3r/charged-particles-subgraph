@@ -1,13 +1,10 @@
 import { Address, BigInt, log } from '@graphprotocol/graph-ts';
 
 import {
-  Proton,
   ProtonNFT,
 } from '../../generated/schema';
 
 import { protonNftId } from './idTemplates';
-import { loadOrCreateProton } from './loadOrCreateProton';
-import { loadOrCreateProtonB } from './loadOrCreateProtonB';
 
 import {
   ZERO,
@@ -24,19 +21,13 @@ export function loadOrCreateProtonNFT(
 ): ProtonNFT {
   const id = protonNftId(protonAddress.toHex(), tokenId.toString());
   let _nft = ProtonNFT.load(id);
-  let _proton:Proton;
 
   if (!_nft) {
-    if (version == "A") {
-      _proton = loadOrCreateProton(protonAddress);
-    } else {
-      _proton = loadOrCreateProtonB(protonAddress);
-    }
     _nft = new ProtonNFT(id);
     _nft.version = version;
     _nft.tokenAddress = protonAddress.toHex();
     _nft.tokenId = tokenId;
-    _nft.proton = _proton.id; // protonAddress.toHex();
+    _nft.proton = protonAddress.toHex();
 
     _nft.owner = getProtonOwnerOf(protonAddress, tokenId);
     _nft.creator = getProtonCreatorOf(protonAddress, tokenId);
